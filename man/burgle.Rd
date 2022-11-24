@@ -4,10 +4,13 @@
 \alias{burgle}
 \title{Copy functions from other packages}
 \usage{
-burgle(...)
+burgle(..., license_warning = TRUE, filename = "burgled.R")
 }
 \arguments{
 \item{...}{functions, must be given in the \code{pkg::fun} or \code{pkg:::fun} format}
+
+\item{filename}{filename for file used for copied functions; defaults to
+"burgled.R".}
 }
 \value{
 returns \code{invisible(NULL)} (called for side effects)
@@ -17,8 +20,9 @@ returns \code{invisible(NULL)} (called for side effects)
 along with its dependencies.
 }
 \details{
-The file \code{"R/burgled.R"} is created or updated with the definition of the
-copied objects.
+By default, the file \code{"R/burgled.R"} is created or updated with the
+definition of the copied objects. The filename can be set as a parameter of
+\code{burgle()}.
 
 When copying S3 generics all S3 methods will be copied as well.
 
